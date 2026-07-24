@@ -1,0 +1,46 @@
+@import "tailwindcss";
+
+:root {
+  --background: #ffffff;
+  --foreground: #171717;
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --font-sans: var(--font-geist-sans);
+  --font-mono: var(--font-geist-mono);
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --background: #0a0a0a;
+    --foreground: #ededed;
+  }
+}
+
+body {
+  background: var(--background);
+  color: var(--foreground);
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+/*
+ * Chart color tokens (validated data-viz palette).
+ * Scoped to .seo-chart and referenced by role inside the Recharts SVG, so the
+ * light/dark values swap in one place. Dark values follow the app's existing
+ * prefers-color-scheme convention.
+ */
+.seo-chart {
+  --chart-series: #2a78d6; /* single-series bar hue (slot 1, light) */
+  --chart-grid: #e1e0d9; /* recessive gridline */
+  --chart-axis: #898781; /* muted axis / tick labels */
+}
+
+@media (prefers-color-scheme: dark) {
+  .seo-chart {
+    --chart-series: #3987e5; /* slot 1, stepped for the dark surface */
+    --chart-grid: #2c2c2a;
+    --chart-axis: #898781;
+  }
+}
