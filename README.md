@@ -1,36 +1,45 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# AI Product SEO Optimizer
 
-## Getting Started
+Turn a product name, some details, and a rough description into SEO-ready metadata.
 
-First, run the development server:
+**Live demo:** https://ai-product-seo-optimizer.vercel.app/
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+## The problem
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Nowadays GEO (Generative Engine Optimization) is just as important as SEO. Merchants have tons of products with boring, generic metadata, which is time-consuming to fix and hurts their ranking on both Google and AI search engines. This tool helps them get proper metadata, removes the tedious part, and saves time.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## What it does
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+The user types in a product name, key details, and a rough description. They get back:
 
-## Learn More
+- An SEO-optimized description
+- A meta title and meta description (with live character counters that flag when they exceed Google's limits)
+- Open Graph tags for social sharing
+- A chart scoring how SEO-ready the output is
 
-To learn more about Next.js, take a look at the following resources:
+## Built with
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+- Next.js and React (App Router)
+- TypeScript
+- The Google Gemini API for AI generation
+- Recharts for the SEO-readiness chart
+- Tailwind CSS for styling
+- Deployed on Vercel
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+## Design decisions
 
-## Deploy on Vercel
+- **Tone selector** — each product and business is different and needs a different voice (a luxury product shouldn't sound like a technical one). Inspired by how CataSEO offers multiple brand tones.
+- **Character counters** — Google cuts off meta titles around 60 characters and descriptions around 160, so the counters turn red when text runs over and the user knows it'll display properly in search.
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+## What's next
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+Right now it optimizes one product at a time. Next steps would be:
+
+- Connecting directly to a store like BigCommerce or Shopify to pull the whole catalog
+- Batch-optimizing many products at once
+- A review-and-approve workflow
+- Pulling competitor keyword data (via Moz) so the AI writes to outrank competitors
+
+## Note
+
+Built with AI-assisted development (Claude Code); the architecture and product decisions are my own.
